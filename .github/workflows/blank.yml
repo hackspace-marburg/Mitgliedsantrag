@@ -36,7 +36,13 @@ jobs:
       # Run export script
       - name: Setup Scribus
         run: xvfb-run scribus -g -ns -py to-pdf.py mitgliedsantrag.sla
-      
+        
+      - name: Upload Artifact
+      - uses: actions/upload-artifact@v2
+        with:
+          name: mitgliedsantrag.pdf
+          path: mitgliedsantrag.pdf
+          
       - name: Release
         uses: softprops/action-gh-release@v1
         
